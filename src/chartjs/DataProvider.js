@@ -1,3 +1,29 @@
+/**
+ * Async dummy method to obtain data.
+ * It will return
+ * object = {
+ *   data: {...}
+ *   options: {...}
+ * }
+ *
+ *
+ * @param type : line, bar, pie
+ * @returns {Promise<Object>}
+ */
+export const obtainData = async (type) => {
+  let result = null;
+  if (type === 'bar') {
+    result = barChartData;
+  } else if (type === 'line') {
+    result = lineChartData;
+  } else if (type === 'pie') {
+    result = pieChartData;
+  }
+  return result;
+}
+
+
+// -------------------------------------------- DUMMY DATA HERE ------------------------------------------------------------------------
 
 const barChartData = {
   data: {
@@ -142,14 +168,3 @@ const pieChartData = {
 }
 
 
-export const obtainData = async (type) => {
-  let result = null;
-  if (type === 'bar') {
-    result = barChartData;
-  } else if (type === 'line') {
-    result = lineChartData;
-  } else if (type === 'pie') {
-    result = pieChartData;
-  }
-  return result;
-}
